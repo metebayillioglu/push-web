@@ -1,0 +1,63 @@
+<app-menu></app-menu>
+  
+<div class="text-center" *ngIf="loginisopen">
+    <div class="form-signin">
+<img class="mb-4" src="https://getbootstrap.com/docs/4.1/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+<h1 class="h3 mb-3 font-weight-normal">Login</h1>
+<label for="inputEmail" class="sr-only">Email</label>
+<input type="email" id="inputEmail" class="form-control" placeholder="Email address" [(ngModel)]="txtEmail"  required autofocus>
+<label for="inputPassword" class="sr-only">Parola</label>
+<input type="password" id="inputPassword" class="form-control" placeholder="Password" [(ngModel)]="txtPassword" required>
+<div [ngClass]="resultClass" *ngIf="waitisOpen">
+    {{waitText}}
+  </div>
+<input class="btn btn-lg btn-primary btn-block" [disabled]="!isButtonActive" (click)="ControlUser()" type="submit" value="Login" />
+<input class="btn btn-lg btn-primary btn-block" [disabled]="!isButtonActive" (click)="AddNewUserPanel()" type="submit" value="Register" />
+<input class="btn btn-lg btn-primary btn-block" [disabled]="!isButtonActive" (click)="ForgotPasswordClick()" type="submit" value="Forgot Password" />
+<p class="mt-5 mb-3 text-muted">&copy; 2018</p>
+</div>
+
+</div>
+
+<div class="text-center" *ngIf="registerOpen">
+    <div class="form-signin">
+  <img class="mb-4" src="https://getbootstrap.com/docs/4.1/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+  <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+  <label for="inputAdSoyadYeniUye" class="sr-only">Name Surname</label>
+  <input type="email" id="inputAdSoyadYeniUye" class="form-control" placeholder="Name Surname" [(ngModel)]="txtNameSurnameNewUser"  required autofocus>
+  <label for="inputEmailYeniUye" class="sr-only">Email</label>
+  <input type="text" id="inputEmailYeniUye"  class="form-control" placeholder="Email" [(ngModel)]="txtEmailNewUser" required>
+  <label for="inputParolaYeniUye" class="sr-only">Password</label>
+  <input type="password" id="inputParolaYeniUye"  class="form-control" placeholder="Password" [(ngModel)]="txtPasswordNewUser" required>
+
+
+  <div class="alert alert-info" *ngIf="waitisOpen">
+      {{waitText}}
+    </div>
+  
+  <input class="btn btn-lg btn-primary btn-block"  [disabled]="!isButtonActive" (click)="AddNewUser()" type="submit" value="Register" /> 
+  <input class="btn btn-lg btn-primary btn-block"   [disabled]="!isButtonActive" (click)="AddNewUserClose()" type="submit" value="Cancel" />
+
+
+  <p class="mt-5 mb-3 text-muted">&copy; 2018</p>
+  
+  </div>
+</div>
+
+<div class="text-center" *ngIf="forgotPassword">
+  <div class="form-signin">
+<img class="mb-4" src="https://getbootstrap.com/docs/4.1/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+<h1 class="h3 mb-3 font-weight-normal">Login</h1>
+<label for="inputEmail" class="sr-only">Email</label>
+<input type="email" id="inputEmail" class="form-control" placeholder="Email address" [(ngModel)]="txtPasswordCheck"  required autofocus>
+
+<div [ngClass]="resultClass" *ngIf="waitisOpen">
+  {{waitText}}
+</div>
+<input class="btn btn-lg btn-primary btn-block" [disabled]="!isButtonActive" (click)="PasswordCheck()" type="submit" value="Send Email" />
+<input class="btn btn-lg btn-primary btn-block" [disabled]="!isButtonActive" (click)="PasswordCheckCancel()" type="submit" value="Cancel" />
+<p class="mt-5 mb-3 text-muted">&copy; 2018</p>
+</div>
+
+</div>
+   
