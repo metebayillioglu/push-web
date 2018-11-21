@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl:"http://localhost:1453/api"
+ baseUrl:"http://localhost:49775/api"
+// baseUrl:"http://api.pushforever.online/api"
 };
 
 /*

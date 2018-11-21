@@ -14,7 +14,7 @@ import { ResultGeneralModel } from "../Model/ResultGeneralModel";
 @Injectable()
 export class AnnouncementsService {
 constructor(private http:Http,private base : Base){}
-duyurularUrl =this.base.baseUrl+ "/announcements";
+announcementUrl =this.base.baseUrl+ "/announcements";
 GetAnnouncementsList(): Observable<AnnouncementsFromModel[]> {
 
     var userId = this.base.GetUserId();
@@ -22,8 +22,8 @@ GetAnnouncementsList(): Observable<AnnouncementsFromModel[]> {
     let headersOlustur = new Headers();
     headersOlustur = this.base.createAuthorizationHeaders(headersOlustur);
     var reqOptions = new RequestOptions({ headers: headersOlustur });
-console.log(this.duyurularUrl + "?userId=" + userId +"&key="+key);
-    return this.http.get(this.duyurularUrl + "?userId=" + userId +"&key="+key, reqOptions)
+//console.log(this.announcementUrl + "?userId=" + userId +"&key="+key);
+    return this.http.get(this.announcementUrl + "?userId=" + userId +"&key="+key, reqOptions)
       .map((response: Response) => <AnnouncementsFromModel[]>response.json())
       .do((data) => console.log("kayit ucretleri geldi"))
       .catch((error: any) => {
@@ -61,7 +61,7 @@ DeleteDuyuru(annoouncementsId): Observable<ResultGeneralModel> {
     headersOlustur = this.base.createAuthorizationHeaders(headersOlustur);
     var reqOptions = new RequestOptions({ headers: headersOlustur });
 
-    return this.http.get(this.duyurularUrl + "/DeleteAnnouncements?annoouncementsId=" + annoouncementsId +"&key="+key, reqOptions)
+    return this.http.get(this.announcementUrl + "/DeleteAnnouncements?annoouncementsId=" + annoouncementsId +"&key="+key, reqOptions)
       .map((response: Response) => <ResultGeneralModel>response.json())
       .do((data) => console.log("kayit ucretleri geldi"))
       .catch((error: any) => {
@@ -109,7 +109,7 @@ DeleteDuyuru(annoouncementsId): Observable<ResultGeneralModel> {
 
 
     return this.http
-      .post(this.duyurularUrl, data, requestOptions)
+      .post(this.announcementUrl, data, requestOptions)
       .map((response: Response) => <ResultGeneralModel>response.json())
       .catch((error: any) => {
         //  alert("hi");

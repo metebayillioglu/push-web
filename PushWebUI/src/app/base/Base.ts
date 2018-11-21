@@ -10,8 +10,8 @@ export class Base {
     throw new Error("Method not implemented.");
   }
   constructor() {
-    //this.UseApiUrl();
-    this.baseUrl = "http://api.pushforever.online/api";
+    this.UseApiUrl();
+    //this.baseUrl = "http://api.pushforever.online/api";
     // this.DovizleriGetir();
    //constructor(){
 
@@ -19,7 +19,8 @@ export class Base {
   }
 
   UseApiUrl(){
-  this.baseUrl = environment.baseUrl;
+//  this.baseUrl = environment.baseUrl;
+  this.baseUrl = "http://api.pushforever.online/api";
   /*
 if(d=="test"){
   this.baseUrl = 'http://localhost:1453/api';
@@ -58,11 +59,11 @@ if(d=="test"){
 
   }
   GetKey(): string {
-    const kullaniciId = localStorage.getItem('key');
+    const userId = localStorage.getItem('key');
 
 
-    if (kullaniciId != null) {
-      return kullaniciId;
+    if (userId != null) {
+      return userId;
     }else {
       return  '';
     }
@@ -71,30 +72,30 @@ if(d=="test"){
     localStorage.setItem('key', key);
     
   }
-  AddNameSurname(kullaniciId) {
-    localStorage.setItem('nameSurname', kullaniciId);
-    console.log("adsoyad yazıldı"+kullaniciId);
+  AddNameSurname(name) {
+    localStorage.setItem('nameSurname', name);
+    //console.log("name surname"+name);
   }
   
   GetNameSurname(): string {
-    const kullaniciId = localStorage.getItem('nameSurname');
+    const userName = localStorage.getItem('nameSurname');
 
-    console.log("adsoyad getir "+kullaniciId);
-    if (kullaniciId != null) {
-      return kullaniciId;
+    //console.log("name surname "+userName);
+    if (userName != null) {
+      return userName;
     }else {
       return  '';
     }
   }
-  AddUserId(kullaniciId) {
-    localStorage.setItem('userId', kullaniciId);
+  AddUserId(userId) {
+    localStorage.setItem('userId', userId);
   }
   GetUserId(): string {
-    const kullaniciId = localStorage.getItem('userId');
+    const userId = localStorage.getItem('userId');
 
 
-    if (kullaniciId != null) {
-      return kullaniciId;
+    if (userId != null) {
+      return userId;
     }else {
       return  '';
     }

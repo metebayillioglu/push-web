@@ -1,8 +1,7 @@
-export class AnnouncementsFromModel
- {
-  annoucncementId:string;
-    announcementTitle:string;
-    announcementMesage:string;
-    userId:string;
-    key:string;
+export class AnnouncementsFromModel {
+  annoucncementId: string;
+  announcementTitle: string;
+  announcementMesage: string;
+  userId: string;
+  key: string;
 }

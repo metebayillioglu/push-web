@@ -12,9 +12,9 @@ export class MenuComponent implements OnInit {
   constructor(private base: Base) { }
 
   ngOnInit() {
-    this.UyeGirisiYapilmisMiKontrolEt();
+    this.IsUserLogIn();
   }
-  UyeGirisiYapilmisMiKontrolEt() {
+  IsUserLogIn() {
     if (this.base.GetNameSurname() != "") {
       this.isLogin = true;
       this.NameSurname = this.base.GetNameSurname();

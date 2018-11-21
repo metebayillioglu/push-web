@@ -17,8 +17,8 @@ export class LoginService {
 constructor(private http:Http,private base : Base){}
 loginUrl =this.base.baseUrl+ "/users/UserControl";
 registerUrl =this.base.baseUrl+ "/users/";
-parolamiUnuttumUrl  =this.base.baseUrl+ "/users/RemovePassword";
-parolaSifirlar  =this.base.baseUrl+ "/users/RemovePassword";
+forgotPasswordUrl  =this.base.baseUrl+ "/users/ForgetPassword";
+resetPasswordUrl  =this.base.baseUrl+ "/users/ResetPassword";
 UserControl(model: LoginModel): Observable<ResultModel> {
 
     //let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });//new Headers();
@@ -30,7 +30,7 @@ UserControl(model: LoginModel): Observable<ResultModel> {
     let data = new FormData();
 
     data.append("Email", model.Email);
-    data.append("Parola", model.Password);
+    data.append("Password", model.Password);
     let body = data.toString()
 console.log(this.loginUrl);
     return this.http
@@ -159,7 +159,7 @@ console.log(this.loginUrl);
 
 
     return this.http
-      .post(this.parolamiUnuttumUrl, data, requestOptions)
+      .post(this.forgotPasswordUrl, data, requestOptions)
       .map((response: Response) => <ResultGeneralModel>response.json())
       .catch((error: any) => {
         //  alert("hi");
@@ -187,7 +187,7 @@ console.log(this.loginUrl);
 
   }
 
-  RemovePassword(parola:string,id:string): Observable<ResultGeneralModel> {
+  RemovePassword(password:string,id:string): Observable<ResultGeneralModel> {
 
     //let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });//new Headers();
     let headers = new Headers();//new Headers();
@@ -198,13 +198,13 @@ console.log(this.loginUrl);
     let data = new FormData();
 
 
-    data.append("Parola",parola);
+    data.append("Password",password);
     data.append("Id",id);
     let body = data.toString()
 
 
     return this.http
-      .post(this.parolaSifirlar, data, requestOptions)
+      .post(this.resetPasswordUrl, data, requestOptions)
       .map((response: Response) => <ResultGeneralModel>response.json())
       .catch((error: any) => {
         //  alert("hi");
